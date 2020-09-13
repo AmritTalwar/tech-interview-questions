@@ -18,7 +18,7 @@ We are only storing two pointers, constant use of space.
 """
 
 
-def hasCycle(head: ListNode):
+def has_cycle(head: ListNode):
     # Have one slow runner and one fast runner. If there is a cycle, the two will eventually meet.
     # If there is no cycle, the fast runner will eventually reach the end of the linked list.
 
@@ -26,16 +26,16 @@ def hasCycle(head: ListNode):
     if head is None or head.next is None:
         return False
 
-    slowPointer = head
-    fastPointer = head.next
+    slow_pointer = head
+    fast_pointer = head.next
 
-    while slowPointer != fastPointer:
-        # If the fastpointer has beyond the end of the list or the last node of the list, we know the list is not cyclic
-        if fastPointer is None or fastPointer.next is None:
+    while slow_pointer != fast_pointer:
+        # If the fast_pointer has beyond the end of the list or the last node of the list, we know the list is not cyclic
+        if fast_pointer is None or fast_pointer.next is None:
             return False
 
         # Slow pointer to move slower than fast pointer
-        slowPointer = slowPointer.next
-        fastPointer = fastPointer.next.next
+        slow_pointer = slow_pointer.next
+        fast_pointer = fast_pointer.next.next
 
     return True

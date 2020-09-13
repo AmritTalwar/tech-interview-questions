@@ -10,14 +10,14 @@ of size N.
 """
 
 
-def isValid(bracketString):
+def is_valid(bracket_string):
     stack = []
-    bracketMap = {")": "(", "]": "[", "}": "{"}
+    bracket_map = {")": "(", "]": "[", "}": "{"}
 
-    for bracket in bracketString:
-        if bracket in bracketMap:
-            topStackElement = stack.pop() if stack else "#"
-            if bracketMap[bracket] != topStackElement:
+    for bracket in bracket_string:
+        if bracket in bracket_map:
+            top_stack_element = stack.pop() if stack else "#"
+            if bracket_map[bracket] != top_stack_element:
                 return False
         else:
             stack.append(bracket)

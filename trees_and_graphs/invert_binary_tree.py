@@ -21,7 +21,7 @@ one massive branch, so the call stack has a worse case size of N, giving us O(N)
 """
 
 
-def invertBinaryTree(root: TreeNode):
+def invert_binary_tree(root: TreeNode):
     # We cannot invert a null node, so just return
     if root is None:
         return
@@ -30,7 +30,7 @@ def invertBinaryTree(root: TreeNode):
     root.left, root.right = root.right, root.left
 
     # Do the same with the child nodes (i.e. swap their children around)
-    invertBinaryTree(root.left)
-    invertBinaryTree(root.right)
+    invert_binary_tree(root.left)
+    invert_binary_tree(root.right)
 
     return root

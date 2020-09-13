@@ -19,22 +19,22 @@ a call stack of size N.
 """
 
 
-def inOrderTraversalRecursive(root: TreeNode):
+def in_order_traversal_recursive(root: TreeNode):
     # Need separate traversal function so we can pass through the visited nodes to add to them.
-    def traverse(root: TreeNode, visitedNodes):
+    def traverse(root: TreeNode, visited_nodes):
         if root is not None:
-            # traverse through left side, then the root, then the right side, appending to visitedNodes along the way
+            # traverse through left side, then the root, then the right side, appending to visited_nodes along the way
             if root.left is not None:
-                traverse(root.left, visitedNodes)
+                traverse(root.left, visited_nodes)
 
-            visitedNodes.append(root.val)
+            visited_nodes.append(root.val)
 
             if root.right is not None:
-                traverse(root.right, visitedNodes)
-        return visitedNodes
+                traverse(root.right, visited_nodes)
+        return visited_nodes
 
-    traversalResult = traverse(root, [])
-    return traversalResult
+    traversal_result = traverse(root, [])
+    return traversal_result
 
 
 """
@@ -46,16 +46,16 @@ Same as above, but instead its the size of our own 'stack' defined in the functi
 """
 
 
-def inOrderTraversalIterative(root: TreeNode):
-    visitedNodes = []
+def in_order_traversal_iterative(root: TreeNode):
+    visited_nodes = []
     stack = []
 
-    currentNode = root
+    current_node = root
 
-    while currentNode is not None or len(stack) > 0:
-        while currentNode is not None:
-            stack.append(currentNode)
-            currentNode = currentNode.left
-        currentNode = stack.pop()
-        visitedNodes.append(currentNode.val)
-        currentNode = currentNode.right
+    while current_node is not None or len(stack) > 0:
+        while current_node is not None:
+            stack.append(current_node)
+            current_node = current_node.left
+        current_node = stack.pop()
+        visited_nodes.append(current_node.val)
+        current_node = current_node.right

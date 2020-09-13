@@ -5,8 +5,8 @@ TIME SPACE ANALYSIS: basically the same as riverSizes.py
 """
 
 
-def countNumberOfIslands(matrix):
-    numberOfIslands = 0
+def count_number_of_islands(matrix):
+    number_of_islands = 0
 
     # Create matrix of same dimensions to keep track of visited nodes so we dont double count nodes
     visited = [[False for value in row] for row in matrix]
@@ -22,9 +22,9 @@ def countNumberOfIslands(matrix):
 
             # DFS this land to 'discover' it all so all nodes can be marked as visited to prevent us from double counting this bit of land
             DFS(row, col, matrix, visited)
-            numberOfIslands += 1
+            number_of_islands += 1
 
-    return numberOfIslands
+    return number_of_islands
 
 
 def DFS(row, col, matrix, visited):
