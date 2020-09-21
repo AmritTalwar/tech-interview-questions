@@ -1,11 +1,6 @@
 # SOURCE: https://leetcode.com/problems/linked-list-cycle
 
-# Definition for singly-linked list.
-class ListNode:
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+from ListNode import ListNode
 
 """
 TIME COMPLEXITY: O(N)
